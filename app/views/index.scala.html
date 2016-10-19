@@ -1,0 +1,24 @@
+@(users : Seq[model.User])(implicit request: RequestHeader)
+@main() {
+
+
+    <div class="user-display" >
+        <fieldset>
+            <legend align="center"><h3>Registered Users</h3></legend>
+            <table cellspacing="20">
+                <tr>
+                    <th>userid</th>
+                    <th>username</th>
+                </tr>
+                @for(user <- users){
+                    <tr>
+                        <td>@user.id</td>
+                        <td>@user.username</td>>
+                        <td><a href="@routes.ApplicationController.deleteUser(user.id)">delete</a></td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    </div>
+
+}
