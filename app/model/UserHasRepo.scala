@@ -9,6 +9,7 @@ import play.api.db.slick.{ HasDatabaseConfigProvider, DatabaseConfigProvider }
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import slick.driver.JdbcProfile
 import slick.driver.MySQLDriver.api._
+import scala.util.Success
 
 case class UserHasRepo(userId: String, repoId: String)
 
@@ -31,12 +32,14 @@ class UserHasRepoDAO @Inject() (protected val dbConfigProvider: DatabaseConfigPr
 
   private val usersRepos = TableQuery[UserHasRepos]
 
-  def getUsersByRepo(repo: String) = {
-    val a = dbConfig.db.run(usersRepos.filter(_.repoId === repo).result)
-    val b = a map (result => result map {
-      _.userId
-    })
-    b
+  def getUsersByRepo(repo: List[String]): Future[Seq[String]] = {
+    getUsersByRepoAux(repo).map {
+      result => result.filter(elem => repo.contains(elem.repoId)).map(_.userId)
+    }
+  }
+
+  private def getUsersByRepoAux(repo: List[String]): Future[Seq[UserHasRepo]] = {
+    dbConfig.db.run(usersRepos.result)
   }
 
   def getRepsOfNode(user: String) = {
@@ -45,6 +48,15 @@ class UserHasRepoDAO @Inject() (protected val dbConfigProvider: DatabaseConfigPr
       _.repoId
     })
     b
+  }
+
+  //given an user, find all users that he is connected with
+  //get all nodes who share same projects
+  def getNeighboursOfUser(user: String): Future[Seq[String]] = {
+    for {
+      repos <- getRepsOfNode(user)
+      neighbours <- getUsersByRepo(repos toList)
+    } yield neighbours
   }
 
 }
