@@ -16,6 +16,17 @@ import java.util.Calendar
 
 case class Repo(id: Long, name: String)
 
+class RepoTableDef(tag: Tag) extends Table[Repo](tag, "repo") {
+
+  def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
+  def name = column[String]("name")
+  //def user = column[Long]("userId")
+  //def userId = foreignKey("userId", user, Users.users)(_.id)
+
+  override def * =
+    (id, name) <> (Repo.tupled, Repo.unapply)
+}
+
 @Singleton
 class Repos @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
 
@@ -23,26 +34,15 @@ class Repos @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec: Ex
   import dbConfig._
   import driver.api._
 
-  private class WaitingTimeTableDef(tag: Tag) extends Table[Repo](tag, "repo") {
-
-    def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
-    def name = column[String]("name")
-    //def user = column[Long]("userId")
-    //def userId = foreignKey("userId", user, Users.users)(_.id)
-
-    override def * =
-      (id, name) <> (Repo.tupled, Repo.unapply)
-  }
-
-  private val waitingTimes = TableQuery[WaitingTimeTableDef]
+  val repos = TableQuery[RepoTableDef]
 
   def add(wt: Repo): Future[Boolean] = {
-    dbConfig.db.run(waitingTimes += wt).map(
+    dbConfig.db.run(repos += wt).map(
       res => true).recover {
         case ex: Exception => false
       }
   }
-/*
+  /*
   def getByUser(user: User): Future[Option[WaitingTime]] = {
     dbConfig.db.run(waitingTimes.filter(_.user === user.id).result.headOption)
   }
