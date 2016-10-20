@@ -4,7 +4,6 @@
 
 # Home page
 GET   /                                    controllers.ApplicationController.index
-GET   /delete/:id                          controllers.ApplicationController.deleteUser(id : Long)
 GET   /add                                 controllers.ApplicationController.addUser()
 GET   /shortestPath/:source/:destination   controllers.ApplicationController.shortestPath(source: String, destination: String)
 

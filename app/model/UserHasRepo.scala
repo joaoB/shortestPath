@@ -1,30 +1,51 @@
 package model
 
 import scala.concurrent.{ Future, ExecutionContext }
-import play.api.db.slick.DatabaseConfigProvider
+import play.api.db.slick.{ DatabaseConfigProvider, HasDatabaseConfigProvider }
 import slick.driver.JdbcProfile
 import com.google.inject._
+import play.api.data.Forms._
+import play.api.db.slick.{ HasDatabaseConfigProvider, DatabaseConfigProvider }
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import slick.driver.JdbcProfile
+import slick.driver.MySQLDriver.api._
 
-case class UserHasRepo(id: Long, userId: Long, repoId: Long)
+case class UserHasRepo(userId: String, repoId: String)
+
+class UserHasRepos(tag: Tag) extends Table[UserHasRepo](tag, "contributor_has_repo") {
+
+  def userId = column[String]("contributorId")
+  def repoId = column[String]("repoId")
+
+  override def * =
+    (userId, repoId) <> (UserHasRepo.tupled, UserHasRepo.unapply)
+}
 
 @Singleton
-class UserHasRepos @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
+class UserHasRepoDAO @Inject() (protected val dbConfigProvider: DatabaseConfigProvider) {
 
   private val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   import dbConfig._
   import driver.api._
 
-  private class UserHasRepoTableDef(tag: Tag) extends Table[UserHasRepo](tag, "user_has_repo") {
+  private val usersRepos = TableQuery[UserHasRepos]
 
-    def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
-    def userId = column[Long]("contributorId")
-    def repoId = column[Long]("repoId")
-    
-    override def * =
-      (id, userId, repoId) <> (UserHasRepo.tupled, UserHasRepo.unapply)
+  def getUsersByRepo(repo: String) = {
+    val a = dbConfig.db.run(usersRepos.filter(_.repoId === repo).result)
+    val b = a map (result => result map {
+      _.userId
+    })
+    b
   }
 
-  private val usersRepos = TableQuery[UserHasRepoTableDef]
+  def getRepsOfNode(user: String) = {
+    val a = dbConfig.db.run(usersRepos.withFilter(_.userId === user).result)
+    val b = a map (result => result map {
+      _.repoId
+    })
+    b
+  }
 
 }
+

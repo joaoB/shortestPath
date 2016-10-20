@@ -2,19 +2,14 @@ package user
 
 import scala.concurrent.Future
 
-import org.scalatest._
-import org.scalatestplus.play._
-
-import play.api.mvc._
-import play.api.test._
-import play.api.test.Helpers._
-import service.UserService
-import controllers.ApplicationController
-import scala.concurrent.ExecutionContext.Implicits.global
-import service.UserService
-import com.google.inject._
 import play.api.http.Writeable
 import play.api.inject.guice.GuiceApplicationBuilder
+import play.api.mvc.AnyContentAsEmpty
+import play.api.mvc.Headers
+import play.api.mvc.Result
+import play.api.mvc.Results
+import play.api.test.FakeRequest
+import play.api.test.PlaySpecification
 
 class ShortestPathControllerSpec extends PlaySpecification with Results {
   "End point is working#index" should {

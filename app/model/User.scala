@@ -26,24 +26,24 @@ class Users @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec: Ex
 
   private val users = TableQuery[UserTableDef]
 
-  def add(user: User): Future[Long] = {
-    dbConfig.db.run((users returning users.map(_.id)) += user)
+  /*def add(user: User): Future[Long] = {
+    dbConfig.db.run((users returning users.map(_.username)) += user)
+  }*/
+
+  def delete(username: String): Future[Int] = {
+    dbConfig.db.run(users.filter(_.username === username).delete)
   }
 
-  def delete(id: Long): Future[Int] = {
-    dbConfig.db.run(users.filter(_.id === id).delete)
-  }
-
-  def get(id: Long): Future[Option[User]] = {
-    dbConfig.db.run(users.filter(_.id === id).result.headOption)
+  def get(username: String): Future[Option[User]] = {
+    dbConfig.db.run(users.filter(_.username === username).result.headOption)
   }
 
   def listAll: Future[Seq[User]] = {
     dbConfig.db.run(users.result)
   }
-  
+
   def update(userToUpdate: User) = {
-    dbConfig.db.run(users.filter(_.id === userToUpdate.id).update(userToUpdate))
+    dbConfig.db.run(users.filter(_.username === userToUpdate.username).update(userToUpdate))
   }
-  
+
 }
