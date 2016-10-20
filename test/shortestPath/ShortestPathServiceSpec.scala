@@ -26,7 +26,7 @@ class ShortestPathServiceSpec extends PlaySpecification {
       val service = new ShortestPathBSF(new DbShortestMocked(db))
       var cur = "user1"
       var dest = "user2"
-      val result = service.calculateShortestPath(cur, dest, Set())
+      val result = service.calculateShortestPath(cur, dest)
       Assert.assertTrue(result == 1)
     }
 
@@ -46,7 +46,7 @@ class ShortestPathServiceSpec extends PlaySpecification {
       val service = new ShortestPathBSF(new DbShortestMocked(db))
       var cur = "user1"
       var dest = "user4"
-      val result = service.calculateShortestPath(cur, dest, Set())
+      val result = service.calculateShortestPath(cur, dest)
       Assert.assertTrue(result == 2)
     }
 
@@ -68,7 +68,7 @@ class ShortestPathServiceSpec extends PlaySpecification {
       val service = new ShortestPathBSF(new DbShortestMocked(db))
       var cur = "user1"
       var dest = "user1"
-      val result = service.calculateShortestPath(cur, dest, Set())
+      val result = service.calculateShortestPath(cur, dest)
       Assert.assertTrue(result == 0)
     }
 
@@ -76,7 +76,7 @@ class ShortestPathServiceSpec extends PlaySpecification {
       val service = new ShortestPathBSF(new DbShortestMocked(db))
       var cur = "invalidUser"
       var dest = "alsoInvalid"
-      val result = service.calculateShortestPath(cur, dest, Set())
+      val result = service.calculateShortestPath(cur, dest)
       Assert.assertTrue(result == -1)
     }
 

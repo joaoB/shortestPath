@@ -21,7 +21,7 @@ class ApplicationController @Inject() (userRepo: UserHasRepoDAO, dbService: DbSh
 
   def shortestPath(source: String, destination: String) = Action.async { implicit request =>
     //import that funky stuff of the api
-    val hops = sp.calculateShortestPath(source, destination, Set())
+    val hops = sp.calculateShortestPath(source, destination)
     Future(Ok(hops toString))
   }
 

@@ -1,17 +1,10 @@
 package dbMocked
 
-import services.DbShortestPath
+import scala.annotation.migration
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import play.api.test.PlaySpecification
-import scala.concurrent.Await
-import scala.concurrent.Future
-import scala.concurrent.duration.Duration
-import play.api.Application
-import play.api.test.PlaySpecification
-import play.api.test.WithApplication
-import services.ShortestPathBSF
-import junit.framework.Assert
+
+import services.DbShortestPath
 
 class ShortestPathServiceSpec
 

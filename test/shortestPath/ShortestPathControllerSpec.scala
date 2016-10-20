@@ -1,5 +1,6 @@
 package shortestPath
 
+import scala.annotation.implicitNotFound
 import scala.concurrent.Future
 
 import play.api.http.Writeable
