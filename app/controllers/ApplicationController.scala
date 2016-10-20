@@ -19,24 +19,10 @@ class ApplicationController @Inject() (userRepo: UserHasRepoDAO, dbService: DbSh
 
   val sp: ShortestPathGeneric = new ShortestPathBSF(dbService)
 
-  def index = Action.async { implicit request =>
-    //Ok(views.html.index(users))
-    Future(Ok(sp.calculateShortestPath("a", "c", Set()).toString))
-
-  }
-
   def shortestPath(source: String, destination: String) = Action.async { implicit request =>
     //import that funky stuff of the api
-    Future(Ok("ok"))
-  }
-
-  def addUser() = Action.async { implicit request =>
-    /*
-      val newUser = User(0, "a", 0, 0, 1, 1)
-    	userService.addUser(newUser).map(res =>
-      Redirect(routes.ApplicationController.index()))
-		*/
-    Future(Ok("not implemented"))
+    val hops = sp.calculateShortestPath(source, destination, Set())
+    Future(Ok(hops toString))
   }
 
 }
