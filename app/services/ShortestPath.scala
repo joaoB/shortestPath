@@ -16,7 +16,7 @@ class ShortestPathBSF(dbShortestPath: DbShortestPath) extends ShortestPathGeneri
     if (cur == dest) 0
     else {
       val neighbours = Await.result(dbShortestPath.getNeighboursOfUser(cur), Duration.Inf)
-      val next = neighbours.filter(n => !visited.contains(n))
+      val next = neighbours.distinct.filter(n => !visited.contains(n))
       val pathsValues = for (n <- next) yield 1 + _calculateShortestPath(n, dest, newVisited)
       if (!pathsValues.isEmpty) pathsValues.min else -1
     }

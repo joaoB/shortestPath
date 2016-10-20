@@ -10,7 +10,7 @@ class ShortestPathServiceSpec
 
 class DbShortestMocked(db: Map[String, List[String]]) extends DbShortestPath {
 
-  def getNeighboursOfUser(user: String): Future[Seq[String]] = {
+  override def getNeighboursOfUser(user: String): Future[Seq[String]] = {
     if (db.contains(user)) {
       val userRepos = db(user)
       val response = db.filter {
@@ -22,7 +22,4 @@ class DbShortestMocked(db: Map[String, List[String]]) extends DbShortestPath {
       Future(Seq())
     }
   }
-
-  def getRepsOfUser(name: String): Future[Seq[String]] = Future(db(name) toSeq)
-
 }

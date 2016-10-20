@@ -43,16 +43,16 @@ class UserHasRepoDAO @Inject() (protected val dbConfigProvider: DatabaseConfigPr
   }
 
   def getRepsOfNode(user: String) = {
-    val a = dbConfig.db.run(usersRepos.withFilter(_.userId === user).result)
-    val b = a map (result => result map {
-      _.repoId
-    })
-    b
+    val reposOfNode = dbConfig.db.run(usersRepos.withFilter(_.userId === user).result)
+    reposOfNode map { result =>
+      result map (_.repoId)
+    }
   }
 
   //given an user, find all users that he is connected with
   //get all nodes who share same projects
   def getNeighboursOfUser(user: String): Future[Seq[String]] = {
+    println("los palalaecas")
     for {
       repos <- getRepsOfNode(user)
       neighbours <- getUsersByRepo(repos toList)
