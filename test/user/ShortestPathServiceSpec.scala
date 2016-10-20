@@ -8,16 +8,20 @@ import play.api.Application
 import play.api.test.PlaySpecification
 import play.api.test.WithApplication
 import service.UserService
+import logic.ShortestPathBSF
+import org.junit.Assert
 
 class ShortestPathServiceSpec extends PlaySpecification {
 
   "ShortestPath Service" should {
 
-    def userService(implicit app: Application) = Application.instanceCache[UserService].apply(app)
+    def service(implicit app: Application) = Application.instanceCache[ShortestPathBSF].apply(app)
 
-    "validate reset times" in new WithApplication() {
-      //val result = await(userService.resetUserTimes(11))
-      // Assert.assertTrue(result.contains("reset"))
+    "validate shortest path logic" in new WithApplication() {
+      var cur = "user1"
+      var dest = "user1"
+      val result = service.calculateShortestPath(cur, dest, Set())
+      Assert.assertTrue(result == 0)
     }
 
   }
