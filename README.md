@@ -1,34 +1,51 @@
-# play-slick3-steps example
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/740e586f17964c779ce3c146c272c560)](https://www.codacy.com)
-[![Build Status](https://travis-ci.org/pedrorijo91/play-slick3-steps.svg)](https://travis-ci.org/pedrorijo91/play-slick3-steps)
+# Curve - ShortestPath Challenge!
 
-Simple working app using play 2.4 and slick 3.1.0 with mysql. Step by step tutorial at [https://pedrorijo91.github.io/blog/play-slick/](https://pedrorijo91.github.io/blog/play-slick/)
-
-Created since the [available demos](https://github.com/playframework/play-slick/tree/master/samples) have too much irrelevant code to who wants to integrate slick 3.1.0 with a play app.
-
-Based on [bhavyalatha26/play-scala-slick-example](https://github.com/bhavyalatha26/play-scala-slick-example).
-
-Removed some code such as:
-
-* Dependency Injection with [guice](https://github.com/google/guice)
-* Traits and implementation classes
-* Useless controllers
-* Support for i18n
-* activator
+A REST API which finds shortest contribution path between two users based on which repositories they contributed.
 
 ## Getting Started
 
 To run this demo using sbt:
 
  * `git clone` this repository
- * Update the MySQL server url, username and password in `conf/application.conf`
- * Create a `playScalaSlickExample` database on your MySQL server.
+ * Update the MySQL server url, username and password in `conf/application.conf` (default is root:root)
+ * Create a `curve` database on your MySQL server.
 
 ```mysql
-    CREATE DATABASE playScalaSlickExample;
+    CREATE DATABASE curve;
 ```
 
- * Launch the demo using `sbt run`
+ * Launch the demo using `activator run`
  * Open the Play web server at <http://localhost:9000>
  * You should be prompted to apply the evolution script. Apply the script.
  * You should now see the app running.
+ 
+## Populate Data
+
+The following script generates some dummie
+```mysql
+    INSERT INTO contributor VALUES (1, 'user1');
+	INSERT INTO contributor VALUES (2, 'user2');
+	INSERT INTO contributor VALUES (3, 'user3');
+	INSERT INTO contributor VALUES (4, 'user4');
+	  
+	INSERT INTO repo VALUES (1, 'repo1');
+	INSERT INTO repo VALUES (2, 'repo2');
+	INSERT INTO repo VALUES (3, 'repo3');
+	INSERT INTO repo VALUES (4, 'repo4');
+	
+	
+	INSERT INTO contributor_has_repo VALUES ('user1', 'repo1');
+	INSERT INTO contributor_has_repo VALUES ('user1', 'repo2');
+	
+	INSERT INTO contributor_has_repo VALUES ('user2', 'repo1');
+	INSERT INTO contributor_has_repo VALUES ('user2', 'repo3');
+	
+	INSERT INTO contributor_has_repo VALUES ('user3', 'repo1');
+	INSERT INTO contributor_has_repo VALUES ('user3', 'repo2');
+	INSERT INTO contributor_has_repo VALUES ('user3', 'repo3');
+	INSERT INTO contributor_has_repo VALUES ('user3', 'repo4');
+	
+	INSERT INTO contributor_has_repo VALUES ('user4', 'repo4');
+``` 
+
+ * Make a GET request to <http://localhost:9000/shortestPath/user1/user4> to see results

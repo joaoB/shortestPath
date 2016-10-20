@@ -19,6 +19,19 @@ class ApplicationController @Inject() (userRepo: UserHasRepoDAO, dbService: DbSh
 
   val sp: ShortestPathGeneric = new ShortestPathBSF(dbService)
 
+  def index = Action {
+    implicit request =>
+      {
+        val message = "This is the index page of Curve ShortestPath Challenge!" +
+          " <br><br> You can perform a GET request to /shortestPath/user1/user2" +
+          " to know the shortest contribution path between the two users. " +
+          " <br><br>return codes:<br><br> -1 -> one of the users does not exists on the database" +
+          " <br><br> 0 -> users are the same" +
+          " <br><br> i if i > 0 -> shortestPath between the two users"
+        Ok(message).as(HTML)
+      }
+  }
+
   def shortestPath(source: String, destination: String) = Action { implicit request =>
     val hops = sp.calculateShortestPath(source, destination)
     Ok(Json.obj("hops" -> hops))

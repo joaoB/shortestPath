@@ -3,6 +3,7 @@
 # ~~~~
 
 # Home page
+GET   /                                    controllers.ApplicationController.index
 GET   /shortestPath/:source/:destination   controllers.ApplicationController.shortestPath(source: String, destination: String)
 
 # Map static resources from the /public folder to the /assets URL path
