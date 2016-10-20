@@ -42,7 +42,7 @@ class UserHasRepoDAO @Inject() (protected val dbConfigProvider: DatabaseConfigPr
     dbConfig.db.run(usersRepos.result)
   }
 
-  def getRepsOfNode(user: String) = {
+  private def getRepsOfNode(user: String) = {
     val reposOfNode = dbConfig.db.run(usersRepos.withFilter(_.userId === user).result)
     reposOfNode map { result =>
       result map (_.repoId)

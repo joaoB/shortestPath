@@ -20,30 +20,13 @@ class Users @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec: Ex
     def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
     def username = column[String]("username")
 
-    override def * =
-      (id, username) <> (User.tupled, User.unapply)
+    override def * = (id, username) <> (User.tupled, User.unapply)
   }
 
   private val users = TableQuery[UserTableDef]
 
-  /*def add(user: User): Future[Long] = {
-    dbConfig.db.run((users returning users.map(_.username)) += user)
-  }*/
-
-  def delete(username: String): Future[Int] = {
-    dbConfig.db.run(users.filter(_.username === username).delete)
-  }
-
   def get(username: String): Future[Option[User]] = {
     dbConfig.db.run(users.filter(_.username === username).result.headOption)
-  }
-
-  def listAll: Future[Seq[User]] = {
-    dbConfig.db.run(users.result)
-  }
-
-  def update(userToUpdate: User) = {
-    dbConfig.db.run(users.filter(_.username === userToUpdate.username).update(userToUpdate))
   }
 
 }
