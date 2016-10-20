@@ -36,6 +36,7 @@ class ApplicationController @Inject() (userService: UserService)(implicit ec: Ex
       Redirect(routes.ApplicationController.index())
     }
   }
+  
 
 }
 

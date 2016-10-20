@@ -30,7 +30,9 @@ class ShortestPathControllerSpec extends PlaySpecification with Results {
     }
 
     s"End point is available" in {
-      codeMustMatch(200, routeGET("/shortestPath"))
+      val source = "source_user"
+      val destination = "destination_user"
+      codeMustMatch(200, routeGET("/shortestPath/source_user/destination_user"))
     }
   }
 }

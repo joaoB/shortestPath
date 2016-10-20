@@ -3,10 +3,11 @@
 # ~~~~
 
 # Home page
-GET   /                         controllers.ApplicationController.index
-GET   /delete/:id               controllers.ApplicationController.deleteUser(id : Long)
-GET   /add                      controllers.ApplicationController.addUser()
+GET   /                                    controllers.ApplicationController.index
+GET   /delete/:id                          controllers.ApplicationController.deleteUser(id : Long)
+GET   /add                                 controllers.ApplicationController.addUser()
+GET   /shortestPath/:source/:destination   controllers.ApplicationController.shortestPath(source: String, destination: String)
 
 # Map static resources from the /public folder to the /assets URL path
-GET   /assets/*file             controllers.Assets.versioned(path="/public", file: Asset)
+GET   /assets/*file                        controllers.Assets.versioned(path="/public", file: Asset)
 
