@@ -184,21 +184,21 @@ C:\Users\bruno\.ivy2\cache\org.specs2\specs2-common_2.11\jars\specs2-common_2.11
 C:\Users\bruno\.ivy2\cache\org.specs2\specs2-core_2.11\jars\specs2-core_2.11-3.6.6.jar -> lastModified(1448932892000)
 C:\Users\bruno\.ivy2\cache\org.specs2\specs2-matcher_2.11\jars\specs2-matcher_2.11-3.6.6.jar -> lastModified(1448932869000)
 C:\Users\bruno\Curve\Curve\bin\services\DbShortestPath.class -> lastModified(1477001133452)
-C:\Users\bruno\Curve\Curve\bin\services\ShortestPathBSF.class -> lastModified(1477001073411)
+C:\Users\bruno\Curve\Curve\bin\services\ShortestPathBSF.class -> lastModified(1477079899850)
 C:\Users\bruno\Desktop\eclipse\plugins\org.scala-lang.scala-library_2.11.8.v20160304-115712-1706a37eb8.jar -> lastModified(1462389490000)
 class names:
 11 items
 C:\Program Files (x86)\Java\jre1.8.0_101\lib\rt.jar -> java.lang.Object
 C:\Users\bruno\.ivy2\cache\com.typesafe.play\play-specs2_2.11\jars\play-specs2_2.11-2.5.6.jar -> play.api.test.PlaySpecification
 C:\Users\bruno\.ivy2\cache\com.typesafe.play\play-test_2.11\jars\play-test_2.11-2.5.6.jar -> play.api.test.Writeables
-C:\Users\bruno\.ivy2\cache\com.typesafe.play\play_2.11\jars\play_2.11-2.5.6.jar -> play.api.http.HeaderNames
+C:\Users\bruno\.ivy2\cache\com.typesafe.play\play_2.11\jars\play_2.11-2.5.6.jar -> play.api.http.HttpVerbs
 C:\Users\bruno\.ivy2\cache\junit\junit\jars\junit-4.12.jar -> junit.framework.Assert
-C:\Users\bruno\.ivy2\cache\org.specs2\specs2-common_2.11\jars\specs2-common_2.11-3.6.6.jar -> org.specs2.io.ConsoleOutput
-C:\Users\bruno\.ivy2\cache\org.specs2\specs2-core_2.11\jars\specs2-core_2.11-3.6.6.jar -> org.specs2.specification.dsl.mutable.ExampleDsl1
-C:\Users\bruno\.ivy2\cache\org.specs2\specs2-matcher_2.11\jars\specs2-matcher_2.11-3.6.6.jar -> org.specs2.matcher.AnyBaseMatchers
+C:\Users\bruno\.ivy2\cache\org.specs2\specs2-common_2.11\jars\specs2-common_2.11-3.6.6.jar -> org.specs2.execute.PendingUntilFixed
+C:\Users\bruno\.ivy2\cache\org.specs2\specs2-core_2.11\jars\specs2-core_2.11-3.6.6.jar -> org.specs2.specification.create.FormattingFragments
+C:\Users\bruno\.ivy2\cache\org.specs2\specs2-matcher_2.11\jars\specs2-matcher_2.11-3.6.6.jar -> org.specs2.matcher.EitherMatchers
 C:\Users\bruno\Curve\Curve\bin\services\DbShortestPath.class -> services.DbShortestPath
 C:\Users\bruno\Curve\Curve\bin\services\ShortestPathBSF.class -> services.ShortestPathBSF
-C:\Users\bruno\Desktop\eclipse\plugins\org.scala-lang.scala-library_2.11.8.v20160304-115712-1706a37eb8.jar -> scala.Product
+C:\Users\bruno\Desktop\eclipse\plugins\org.scala-lang.scala-library_2.11.8.v20160304-115712-1706a37eb8.jar -> scala.Serializable
 internal apis:
 3 items
 C:\Users\bruno\Curve\Curve\test\dbMocked\DbShortestMocked.scala -> 
@@ -218,7 +218,7 @@ AAAAAAAAAAA=
 C:\Users\bruno\Curve\Curve\test\shortestPath\ShortestPathServiceSpec.scala -> 
 AAAAAAAAAAA=
 compilations:
-52 items
+57 items
 00 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+OXCYl1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
 01 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+OXUd51cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
 02 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+OX7p51cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
@@ -271,3 +271,8 @@ compilations:
 49 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+QW8Zl1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
 50 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+Qg+dJ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
 51 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+Qg/Qd1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
+52 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+joxbl1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
+53 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+jpNdd1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
+54 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+jps9B1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
+55 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+jp/1J1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=
+56 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABV+jri691cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAHkM6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXGJpbnQAH0M6XFVzZXJzXGJydW5vXEN1cnZlXEN1cnZlXHRlc3Q=

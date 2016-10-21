@@ -2,24 +2,24 @@ package services
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
+import scala.annotation.tailrec
 
 abstract class ShortestPathGeneric(dbShortestPath: DbShortestPath) {
   def calculateShortestPath(cur: String, dest: String): Int
 }
 
-//TODO: if cur == dest, but if cur does not exist, it should return -1
 class ShortestPathBSF(dbShortestPath: DbShortestPath) extends ShortestPathGeneric(dbShortestPath) {
   def calculateShortestPath(cur: String, dest: String): Int = _calculateShortestPath(Set(cur), dest, List(cur), 0)
 
+  @tailrec
   private def _calculateShortestPath(toVisit: Set[String], dest: String, visited: List[String], count: Int): Int = {
-
     if (toVisit.contains(dest)) count //reached the final node
     else {
-      //TODO: all calls in parallel would be sweeeet
-      val neighbours = for (n <- toVisit) yield Await.result(dbShortestPath.getNeighboursOfUser(n), Duration.Inf)
+      val neighbours = toVisit.par.map( node =>
+        Await.result(dbShortestPath.getNeighboursOfUser(node), Duration.Inf))
       val next = neighbours.flatten.filter(n => !visited.contains(n))
       if (next.isEmpty) -1 // impossible way to the destination source
-      else _calculateShortestPath(next, dest, next.toList ++ visited.toList, count + 1) //recursive find more nodes
+      else _calculateShortestPath(next.toList.toSet, dest, next.toList ++ visited.toList, count + 1) //recursive find more nodes
     }
   }
 }
