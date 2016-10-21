@@ -12,13 +12,14 @@ class ShortestPathBSF(dbShortestPath: DbShortestPath) extends ShortestPathGeneri
   def calculateShortestPath(cur: String, dest: String): Int = _calculateShortestPath(Set(cur), dest, List(cur), 0)
 
   private def _calculateShortestPath(toVisit: Set[String], dest: String, visited: List[String], count: Int): Int = {
-    //TODO: all calls in parallel would be sweeeet
-    val neighbours = for (n <- toVisit) yield Await.result(dbShortestPath.getNeighboursOfUser(n), Duration.Inf)
-    val next = neighbours.flatten .filter(n => !visited.contains(n))
+
     if (toVisit.contains(dest)) count //reached the final node
-    else if (next.isEmpty) -1 // impossible way to the destination source
     else {
-      _calculateShortestPath(next toSet, dest, next.toList ++ visited.toList, count + 1) //recursive find more nodes
+      //TODO: all calls in parallel would be sweeeet
+      val neighbours = for (n <- toVisit) yield Await.result(dbShortestPath.getNeighboursOfUser(n), Duration.Inf)
+      val next = neighbours.flatten.filter(n => !visited.contains(n))
+      if (next.isEmpty) -1 // impossible way to the destination source
+      else _calculateShortestPath(next, dest, next.toList ++ visited.toList, count + 1) //recursive find more nodes
     }
   }
 }
